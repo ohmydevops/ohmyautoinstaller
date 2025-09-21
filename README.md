@@ -2,7 +2,7 @@
 
 > Automated Ubuntu installer for DevOps/Programmers.
 
-**ohmyautoinstaller** automates Ubuntu installations with LUKS encryption, LVM partitioning, and essential tools like Git, Chrome, VS Code, PHP, Golang, Throne, and Telegram.  
+**ohmyautoinstaller** automates Ubuntu installations with LUKS encryption, LVM partitioning, and essential tools like Git, Chrome, PHP, Golang, Throne, and Telegram.  
 You can provide the `autoinstall.yaml` file either via a **raw URL** during installation or as a **local file**.
 
 For more information about Ubuntu auto installation, check out the [Subiquity documentation](https://canonical-subiquity.readthedocs-hosted.com/en/latest/intro-to-autoinstall.html).
