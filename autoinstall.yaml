@@ -1,0 +1,52 @@
+#cloud-config
+autoinstall:
+  version: 1
+  updates: security
+  locale: "en_US.UTF-8"
+  keyboard:
+    layout: us
+  timezone: Asia/Tehran
+
+  identity:
+    hostname: chalqoz.local
+    username: ohmydevops
+    password: "$1$dcJMNonv$JOqiAxkPVZLBk93.yKV.40" # 123456789
+
+  storage:
+    layout:
+      name: lvm
+      sizing-policy: all
+      password: "LUKS_PASSPHRASE" # please change this
+
+  codecs:
+    install: true
+
+  packages:
+    - git
+    - wget
+    - curl
+    - apt-transport-https
+    - software-properties-common
+
+  late-commands:
+    # Chrome
+    - curtin in-target -- wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O /tmp/google-chrome.deb || true
+    - curtin in-target -- dpkg -i /tmp/google-chrome.deb || true
+    - curtin in-target -- apt-get install -f -y || true
+
+    # Throne
+    - curtin in-target -- wget -q https://github.com/throneproj/Throne/releases/download/1.0.5/Throne-1.0.5-debian-x64.deb -O /tmp/throne.deb || true
+    - curtin in-target -- dpkg -i /tmp/throne.deb || true
+    - curtin in-target -- apt-get install -f -y || true
+
+    # Telegram
+    - curtin in-target -- add-apt-repository -y ppa:atareao/telegram || true
+    - curtin in-target -- apt-get install -y telegram || true
+
+    # PHP 8.4
+    - curtin in-target -- add-apt-repository -y ppa:ondrej/php || true
+    - curtin in-target -- apt-get install -y php8.4 php8.4-cli php8.4-common php8.4-mysql php8.4-xml php8.4-mbstring || true
+
+    # Golang
+    - curtin in-target -- add-apt-repository -y ppa:longsleep/golang-backports || true
+    - curtin in-target -- apt-get install -y golang-go || true
