@@ -8,8 +8,8 @@ autoinstall:
   timezone: Asia/Tehran
 
   identity:
-    hostname: chalqoz.local
-    username: ohmydevops
+    hostname: example.local
+    username: example
     password: "$1$dcJMNonv$JOqiAxkPVZLBk93.yKV.40" # 123456789
 
   storage:
