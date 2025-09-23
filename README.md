@@ -12,3 +12,8 @@ For more information about Ubuntu auto installation, check out the [Subiquity do
 ## Usage
 - **URL**: Use this raw URL: [autoinstall.yaml](https://raw.githubusercontent.com/ohmydevops/ohmyautoinstaller/refs/heads/master/autoinstall.yaml)
 - **File**: copy it to the installation media.
+
+## Important!
+- The configuration file uses the username `example`.
+Before running the installer, search for `example` and replace all of them with your actual username.
+- Use a hashed password for user password (not plain text). Generate one with: `openssl passwd``
