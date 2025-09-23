@@ -63,7 +63,7 @@ autoinstall:
     - curtin in-target -- apt-get install -y golang-go || true
 
     # Node.js (v22.x)
-    - curtin in-target -- curl -fsSL https://deb.nodesource.com/setup_22.x | bash - || true
+    - curtin in-target -- curl -fsSL https://deb.nodesource.com/setup_22.x | sh - || true
     - curtin in-target -- apt-get install -y nodejs || true
 
     # Docker (change example to your username)
@@ -75,8 +75,8 @@ autoinstall:
     - curtin in-target -- apt-get install -y zsh || true
     - curtin in-target -- chsh -s /usr/bin/zsh example || true
 
-    # Ohmyzsh (change example to your username)
-    - curtin in-target -- sh -c "RUNZSH=no CHSH=no KEEP_ZSHRC=yes ZSH=/home/example/.oh-my-zsh $(wget -qO- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" || true
+    # # Ohmyzsh (change example to your username)
+    # - curtin in-target -- sh -c "RUNZSH=no CHSH=no KEEP_ZSHRC=yes ZSH=/home/example/.oh-my-zsh $(wget -qO- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" || true
 
     # AB Download Manager
     - curtin in-target -- bash -c "curl -fsSL https://raw.githubusercontent.com/amir1376/ab-download-manager/master/scripts/install.sh -o /tmp/ab-install.sh" || true
