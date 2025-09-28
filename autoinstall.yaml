@@ -1,7 +1,7 @@
 #cloud-config
 autoinstall:
   version: 1
-  updates: security
+  updates: none
   locale: "en_US.UTF-8"
   keyboard:
     layout: us
@@ -19,57 +19,57 @@ autoinstall:
       password: "123456789" # please change this
 
   codecs:
-    install: true
+    install: false
 
-  packages:
-    - git
-    - wget
-    - curl
-    - unzip
-    - gnupg
-    - virtualbox
-    - lsb-release
-    - ca-certificates
-    - apt-transport-https
-    - software-properties-common
-    - virtualbox-guest-additions-iso
+  # packages:
+    # - git
+    # - wget
+    # - curl
+    # - unzip
+    # - gnupg
+    # - virtualbox
+    # - lsb-release
+    # - ca-certificates
+    # - apt-transport-https
+    # - software-properties-common
+    # - virtualbox-guest-additions-iso
 
   late-commands:
-    # Chrome
-    - curtin in-target -- wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O /tmp/google-chrome.deb || true
-    - curtin in-target -- dpkg -i /tmp/google-chrome.deb || true
-    - curtin in-target -- apt-get install -f -y || true
+    # # Chrome
+    # - curtin in-target -- wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O /tmp/google-chrome.deb || true
+    # - curtin in-target -- dpkg -i /tmp/google-chrome.deb || true
+    # - curtin in-target -- apt-get install -f -y || true
 
-    # Throne
-    - curtin in-target -- wget -q https://github.com/throneproj/Throne/releases/download/1.0.5/Throne-1.0.5-debian-x64.deb -O /tmp/throne.deb || true
-    - curtin in-target -- dpkg -i /tmp/throne.deb || true
-    - curtin in-target -- apt-get install -f -y || true
+    # # Throne
+    # - curtin in-target -- wget -q https://github.com/throneproj/Throne/releases/download/1.0.5/Throne-1.0.5-debian-x64.deb -O /tmp/throne.deb || true
+    # - curtin in-target -- dpkg -i /tmp/throne.deb || true
+    # - curtin in-target -- apt-get install -f -y || true
 
-    # Telegram
-    - curtin in-target -- add-apt-repository -y ppa:atareao/telegram || true
-    - curtin in-target -- apt-get install -y telegram || true
+    # # Telegram
+    # - curtin in-target -- add-apt-repository -y ppa:atareao/telegram || true
+    # - curtin in-target -- apt-get install -y telegram || true
 
-    # PHP 8.4
-    - curtin in-target -- add-apt-repository -y ppa:ondrej/php || true
-    - curtin in-target -- apt-get install -y php8.4 php8.4-cli php8.4-common php8.4-mysql php8.4-xml php8.4-mbstring || true
+    # # PHP 8.4
+    # - curtin in-target -- add-apt-repository -y ppa:ondrej/php || true
+    # - curtin in-target -- apt-get install -y php8.4 php8.4-cli php8.4-common php8.4-mysql php8.4-xml php8.4-mbstring || true
 
-    # Composer package manager
-    - curtin in-target -- php -r "copy('https://getcomposer.org/installer', '/tmp/composer-setup.php');" || true
-    - curtin in-target -- php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer || true
-    - curtin in-target -- composer --version || true
+    # # Composer package manager
+    # - curtin in-target -- php -r "copy('https://getcomposer.org/installer', '/tmp/composer-setup.php');" || true
+    # - curtin in-target -- php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer || true
+    # - curtin in-target -- composer --version || true
 
-    # Golang
-    - curtin in-target -- add-apt-repository -y ppa:longsleep/golang-backports || true
-    - curtin in-target -- apt-get install -y golang-go || true
+    # # Golang
+    # - curtin in-target -- add-apt-repository -y ppa:longsleep/golang-backports || true
+    # - curtin in-target -- apt-get install -y golang-go || true
 
-    # Node.js (v22.x)
-    - curtin in-target -- curl -fsSL https://deb.nodesource.com/setup_22.x | sh - || true
-    - curtin in-target -- apt-get install -y nodejs || true
+    # # Node.js (v22.x)
+    # - curtin in-target -- curl -fsSL https://deb.nodesource.com/setup_22.x | sh - || true
+    # - curtin in-target -- apt-get install -y nodejs || true
 
-    # Docker (change example to your username)
-    - curtin in-target -- sh -c "curl -fsSL https://get.docker.com -o /tmp/get-docker.sh" || true
-    - curtin in-target -- sh /tmp/get-docker.sh || true
-    - curtin in-target -- usermod -aG docker example || true
+    # # Docker (change example to your username)
+    # - curtin in-target -- sh -c "curl -fsSL https://get.docker.com -o /tmp/get-docker.sh" || true
+    # - curtin in-target -- sh /tmp/get-docker.sh || true
+    # - curtin in-target -- usermod -aG docker example || true
 
     # Zsh (change example to your username)
     - curtin in-target -- apt-get install -y zsh || true
@@ -78,6 +78,6 @@ autoinstall:
     # # Ohmyzsh (change example to your username)
     # - curtin in-target -- sh -c "RUNZSH=no CHSH=no KEEP_ZSHRC=yes ZSH=/home/example/.oh-my-zsh $(wget -qO- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" || true
 
-    # AB Download Manager
-    - curtin in-target -- bash -c "curl -fsSL https://raw.githubusercontent.com/amir1376/ab-download-manager/master/scripts/install.sh -o /tmp/ab-install.sh" || true
-    - curtin in-target -- bash /tmp/ab-install.sh || true
+    # # AB Download Manager
+    # - curtin in-target -- bash -c "curl -fsSL https://raw.githubusercontent.com/amir1376/ab-download-manager/master/scripts/install.sh -o /tmp/ab-install.sh" || true
+    # - curtin in-target -- bash /tmp/ab-install.sh || true
