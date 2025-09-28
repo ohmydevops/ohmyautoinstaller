@@ -1,7 +1,7 @@
 #cloud-config
 autoinstall:
   version: 1
-  updates: none
+  updates: security
   locale: "en_US.UTF-8"
   keyboard:
     layout: us
